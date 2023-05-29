@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Mis finanzas</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- font flat-ui cdn 2.2.2 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.2.2/css/flat-ui.min.css"
+    integrity="sha512-PvB3Q4vTvWD/9aiiELYI3uebup/4mtou3Mc/uGudC/Zl+C9BdKUkAI+5jORfA+fvLK4DpzC5VyEN7P2kK43hjg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <!-- toastr -->
+    <link href="assets/vendor/toastr/toastr.min.css" rel="stylesheet">
+
+    <!-- mis estilos -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+    </script>
+</head>
+
+<body>
+  <header>
+    <!-- place navbar here -->
+  </header>
+  <main>
+    <section class="dashboard">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="title">P APP</h1>
+                </div>
+            </div>
+            <div class="row">                
+                <div class="col-md-6 col-12 order-1 order-sm-0">
+                    <div class="boxes">
+                       <!-- Card Presupuesto -->
+                       <div class="card boxpresupuesto bg-success p-2 text-dark bg-opacity-10 border-success p-0 shadow">
+                           <div class="card-body p-0">                                
+                               <form id="formPresupuesto">
+                                   <label for="montoPresupuesto">Ingresa tu presupuesto</label>
+                                   <input type="number" ondrop="return false;" onpaste="return false;"
+                                   onkeypress="return event.charCode>=48 && event.charCode<=57"  name="montoPresupuesto" id="montoPresupuesto" class="form-control bg-success bg-opacity-10 border-success my-2" value="23000" placeholder="ej: 10000" required>
+                                   <button type="submit" class="btn btn-outline-success" id="btnPresupuesto">Calcular</button>
+                               </form>
+                           </div>
+                       </div>
+                       <!-- end card -->   
+                       <div class="py-2"></div>
+                       <!-- Card Gasto -->
+                       <div class="card boxgasto bg-danger p-2 text-dark bg-opacity-10 border-danger p-0 shadow">
+                           <div class="card-body p-0">                                
+                               <form id="formGasto" disabled="disabled">
+                                   <label for="detalleGasto">Ingresa el nombre del gasto</label>
+                                   <input type="text" name="detalleGasto" id="detalleGasto" class="form-control bg-danger bg-opacity-10 border-danger my-2" disabled="disabled" placeholder="Pan" value="Verduras" required>
+                                   <label for="montoGasto">Ingresa la cantidad del gasto</label>
+                                   <input type="number" ondrop="return false;" onpaste="return false;"
+                                   onkeypress="return event.charCode>=48 && event.charCode<=57" name="montoGasto" id="montoGasto" class="form-control bg-danger bg-opacity-10 border-danger my-2" disabled="disabled" placeholder="1250" value="16000" required>
+                                   <button   type="submit" class="btn btn-outline-danger" id="btnGasto" disabled="disabled">Calcular</button>
+                               </form>
+                           </div>
+                       </div><!-- end card -->                    
+                    </div><!-- end boxes -->   
+               </div>
+                <div class="col-md-6 col-12 order-0  order-sm-1">
+                    <div class="detalleFinanzas">
+                        <div class="totales d-flex justify-content-between">
+                            <div class="divPresupuesto">
+                                <span class="titleDetalle">presupuesto</span>
+                                <div class="totalPresupuesto valor" data-presupuesto="">
+                                    $ 0
+                                </div>
+                            </div>
+                            <div class="divGasto">
+                                <span class="titleDetalle">Gasto</span>
+                                <div class="valor" id="totalGasto">
+                                    $ 0
+                                </div>
+                            </div>
+                            <div class="divSaldo">
+                                <span class="titleDetalle">Saldo</span>
+                                <div class="valor" id="totalSaldo">
+                                    $ 0
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pb-5"></div>
+                    <div class="listadoGasto py-5">
+                        <div class="table-responsive">
+                         <table class="table">
+                             <thead>
+                                 <tr>
+                                     <th scope="col">Gasto</th>
+                                     <th scope="col">Valor</th>
+                                     <th scope="col"></th>
+                                 </tr>
+                             </thead>
+                             <tbody id="tbodyGastos">
+                                 
+                             </tbody>
+                         </table>
+                        </div>
+                        
+                     </div>
+                </div>
+            </div> <!-- end row -->
+        </div>
+    </section>
+  </main>
+  <footer>
+    <!-- place footer here -->
+  </footer>
+  
+  <!-- toastr -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+
+  <!-- toastr -->
+  <script src="assets/vendor/toastr/toastr.min.js"></script>
+  <!-- main js -->
+  <script src="assets/js/script_v3.js"></script>
+</body>
+
+</html>
