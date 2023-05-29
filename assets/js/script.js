@@ -160,7 +160,7 @@ function procesaFormGasto(e){
       misFinanzas.setGasto(gasto);
       misFinanzas.reduceSaldo(gasto.monto);
       drawRowGasto(gasto);
-      
+      toastr.remove();
       toastr.info('Gasto Agregado');
     }
     
