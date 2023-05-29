@@ -1,1 +1,35 @@
+/* header */
 
+.title{
+
+    text-transform: uppercase;
+
+}
+
+
+
+.border-success{
+
+    border: 1px solid;
+
+}
+
+
+
+.titleDetalle{
+
+    text-transform: uppercase;
+
+    font-weight: 600;
+
+    font-size: 12px;
+
+}
+
+
+
+.valor{
+
+    font-weight: 700;
+
+}
